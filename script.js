@@ -34,21 +34,29 @@ const resetHandler = () =>{
 }
 
 function decideResult(player,computer){
-    if(player=="rock" && (computer=="paper" || computer=="scissor")){
-        winner = `Player's rock beats computer's ${computer}`;
+    if(player=="rock" && computer=="scissor"){
         playerWinCount++;
+        winner = `Player's rock beats computer's scissor`;
     }
-    else if(player=="paper" && (computer=="rock" || computer=="scissor")){
-        winner = `Computer's ${computer} beats player's ${player}`;
+    else if(player=="rock" && computer=="paper"){
         computerWinCount++;
-    }
-    else if(player=="scissor" && computer=="rock"){
-        winner = `Computer's rock beats player's scissor`;
-        computerWinCount++;
+        winner = `Computer's paper beats player's rock`;
     }
     else if(player=="scissor" && computer=="paper"){
-        winner = `Player's scissor beats computer's ${computer}`;
         playerWinCount++;
+        winner = `Player's scissor beats computer's paper`;
+    }
+    else if(player=="scissor" && computer=="rock"){
+        computerWinCount++;
+        winner = `Computer's rock beats player's scissor`;
+    }
+    else if(player=="paper" && computer=="rock"){
+        playerWinCount++;
+        winner = `Player's paper beats computer's rock`;
+    }
+    else if(player=="paper" && computer=="scissor"){
+        computerWinCount++;
+        winner = `Computer's scissor beats player's paper`;
     }
     else if(player===computer){
         winner="Match Draw";
